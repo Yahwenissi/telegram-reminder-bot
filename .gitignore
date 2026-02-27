@@ -1,0 +1,15 @@
+# Dependencies
+node_modules/
+
+# Environment (never commit secrets)
+.env
+.env.local
+.env.*.local
+
+# Logs and OS
+npm-debug.log*
+.DS_Store
+Thumbs.db
+
+# Optional local data (bot can recreate)
+events.json
