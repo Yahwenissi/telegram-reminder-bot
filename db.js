@@ -1,12 +1,16 @@
+/* Without ssl it will fail in neon
+Without SSL -> it will fail in render */
 const { Pool } = require('pg')
 
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false,
+  },
 })
 
 async function query(text, params) {
-  const res = await pool.query(text, params)
-  return res
+  return pool.query(text, params)
 }
 
 module.exports = {
